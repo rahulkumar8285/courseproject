@@ -1,10 +1,10 @@
 <?php require_once("header.php");
       require_once("function.inc.php");
+      $result = false;
   if(isset($_POST['StudentLogin'])){
-
-      echo $email = $_POST['email-id'];
+      echo $email = $_POST['email'];
       echo $password = $_POST['password'];
-      StudentLogin($email,$password,"student");
+      $result = StudentLogin($email,$password,"student");
   }
 ?>
 <section id="categories-area ">
@@ -15,9 +15,19 @@
                     <div class="card-header">
                         <h4 class="card-title">Student Login Form</h4>
                     </div>
+                    <div id="errormsg">
+
+                    </div>
+                    <?php
+                    if($result){
+                    echo '<div class="alert alert-danger" role="alert">
+                      User Name And Password Not Match:-<a href="login.php"> Click To Login</a>
+                    </div>';
+                    }
+                    ?>
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form form-horizontal" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+                            <form class="form form-horizontal" action="<?php echo $_SERVER['PHP_SELF'];?>" onsubmit="return login(this)" method="POST">
                                 <div class="form-body">
                                     <div class="row">
                                         
@@ -26,7 +36,7 @@
                                             <label>Email</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="email" id="email-id"  class="form-control" name="email-id"
+                                            <input type="email" id="email"  class="form-control" name="email"
                                                 placeholder="Email">
                                         </div>
                                        

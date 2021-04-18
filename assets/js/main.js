@@ -199,6 +199,53 @@
 // 15. Time Picker
   $('#timepicker').timepicker();
 
-
 })(jQuery);
 
+function validateForm(data){
+  alert("function coll");
+  var full_name = data["full-name"].value;
+  var email = data['email'].value;
+  var mobile = data['mobile'].value;
+  var city = data['city'].value;
+  var country = data['country'].value;
+  var password = data['password'].value;
+  document.getElementById('errormsg').innerHTML+="";
+if(full_name.trim() == "" || email.trim() == "" ||mobile.trim() == "" 
+  ||city.trim() == "" || country.trim() == "" ||password.trim() == "" )
+ {
+  alert("all filed requrid");
+  document.getElementById('errormsg').innerHTML+="<div class='alert alert-danger alert-dismissible fade show' role='alert'><strong>Holy guacamole!</strong>All Fileds Are Requird.<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+  return false;  
+
+ }
+ else{
+ if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
+  {
+    if(mobile.length == 10){
+      return true;
+    }
+    else{
+      alert("mobile not match");
+      document.getElementById('errormsg').innerHTML+="<div class='alert alert-danger alert-dismissible fade show' role='alert'><strong>Holy guacamole!</strong>Enter only 10 digit mobile number.<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+ 
+      return false;
+    }
+    
+  }
+    alert("You have entered an invalid email address!")
+    document.getElementById('errormsg').innerHTML+="<div class='alert alert-danger alert-dismissible fade show' role='alert'><strong>Holy guacamole!</strong>You have entered an invalid email address!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+    return (false)
+ }
+}
+
+function login(logindata){
+  alert("function run"); 
+   var email = logindata['email'].value;
+   var password = logindata['password'].value;
+   alert(email);
+   if(email.trim()==""||password.trim()==""){
+    document.getElementById('errormsg').innerHTML+="<div class='alert alert-danger alert-dismissible fade show' role='alert'><strong>Holy guacamole!</strong>Email And Password Must <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+    return false;
+   }
+   else{return true;}
+ }

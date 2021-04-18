@@ -18,35 +18,37 @@ function  AddStudent($data){
     WHERE `email` = '$data[1]' OR `mobile` = '$data[2]'";
     $checkresult = mysqli_query($GLOBALS['conn'],$checkemail);
      $num = mysqli_num_rows($checkresult);
-    if($num == 0){
+    if($num<0){
     $sql = "INSERT INTO `student`( `name`, `email`,`mobile`,`city`,`Country`,`password`) 
     VALUES ('$data[0]','$data[1]','$data[2]','$data[3]','$data[4]','$data[5]')";
     $result = mysqli_query($GLOBALS['conn'],$sql);
-    header("Location:http://localhost/collagepro/profile.php");
-    }
+    
+   }
     else{
       return true;
     }
   }
 
-
-
-
-
-
-
-
-// function StudentLogin($email,$password,$path){
-//   $sql="SELECT  `email`, `password` FROM `student` WHERE email= '$email'  AND password =  '$password'";
-//   $result = mysqli_query($GLOBALS['conn'],$sql) or die(""); 
-//   $data = mysqli_num_rows($result);
-//   echo"<pre>";
-//    print_r($data);
-//   echo"</pre>";
-//  if($data==1){
-//    header("Location:google.com");
-//  }
-//   } 
+function StudentLogin($email,$password,$path){
+  $sql="SELECT * FROM `$path` WHERE email= '$email'  AND password =  '$password'";
+  $result = mysqli_query($GLOBALS['conn'],$sql) or die(""); 
+  $data = mysqli_num_rows($result);
+  $row = mysqli_fetch_assoc($result);
+  echo "<br>".$data;
+  echo"<pre>";
+  print_r($row);
+  echo "</pre>";
+ if($data>1){
+  session_unset();
+  $_SESSION['id'] = $row['id'];
+  $_SESSION['email'] = $email;
+  $_SESSION['name'] = $row['name'];
+  
+ }
+ else{
+   return true;
+ }
+  } 
 
 
 // function FaciltyLogin($email,$password){
