@@ -5,9 +5,7 @@ if(isset($_POST['faclogin'])){
    $email =  $_POST['email-id'];
    $pwd = $_POST['password'];
    FaciltyLogin($email,$pwd);
-}
-
-?>
+}?>
 <section id="basic-horizontal-layouts">
  <div class="container">
         <div class="row match-height">
@@ -67,4 +65,4 @@ if(isset($_POST['faclogin'])){
         </div>
     </section>
 <?php
-include_once("footer.php"); ?>
+include_once("footer.php");

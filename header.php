@@ -1,5 +1,4 @@
-<?php require_once('function.inc.php');
-?>
+<?php require_once('function.inc.php');?>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -73,10 +72,9 @@
                                 </div>
                                 <div class="header-info-right">
                                 <?php
-                                session_unset();
+                                session_start();
                                 if(isset($_SESSION['id'])||isset($_SESSION['name'])||isset($_SESSION['email'])){
-                                    
-                                    echo'<a href="/student/index.php">
+                                    echo'<a href="http://localhost/collagepro/student/">
                                     <div class="media align-items-center">
                                      <h4 class="pl-2" >'.$_SESSION['name'].'</h4>
                                      <img src="assets/img/blog/author.png" alt="" class="profile">
@@ -86,8 +84,7 @@
                                     <li><a href="login.php"><i class="ti-user"></i>Login</a></li>
                                     <li><a href="singup.php"><i class="ti-lock"></i>Register</a></li>
                                     </ul>';
-                                }
-                                ?>
+                                }?>
                                 </div>
                             </div>
                         </div>

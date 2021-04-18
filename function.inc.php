@@ -1,4 +1,5 @@
 <?php
+
 require_once("dbconfig.inc.php");
 function ShowData($tabelname){
   $sql = "SELECT * FROM $tabelname";
@@ -38,18 +39,15 @@ function StudentLogin($email,$password,$path){
   echo"<pre>";
   print_r($row);
   echo "</pre>";
- if($data>1){
-  session_unset();
+ if($data==1){
   $_SESSION['id'] = $row['id'];
   $_SESSION['email'] = $email;
   $_SESSION['name'] = $row['name'];
-  
- }
+  header("Location:http://localhost/collagepro/student/");}
  else{
    return true;
- }
-  } 
-
+}
+} 
 
 // function FaciltyLogin($email,$password){
 //   $sql="SELECT  `facilityusername`, `facilitypassword` FROM `facility` WHERE facilityusername= '$email'  AND facilitypassword =  '$password'";

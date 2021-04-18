@@ -56,4 +56,4 @@
    <h3>Course Discretion</h3>
    <p><?php echo $Course['discretion'];?></p>
 </div>
-<?php require_once("footer.php");?>
+<?php require_once("footer.php");

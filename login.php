@@ -5,7 +5,7 @@
       echo $email = $_POST['email'];
       echo $password = $_POST['password'];
       $result = StudentLogin($email,$password,"student");
-  }
+    }
 ?>
 <section id="categories-area ">
  <div class="container pt-5 py-5">
@@ -74,4 +74,4 @@
         </div>
     </section>
 
-<?php require_once("footer.php");?>
+<?php require_once("footer.php");

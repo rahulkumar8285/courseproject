@@ -1,4 +1,4 @@
-<?php require_once("header.php") ;?>
+<?php require_once("header.php");?>
     <main>
         <!--? Hero Start -->
         <div class="slider-area ">
@@ -119,4 +119,4 @@
         </section>
         <!-- ================ contact section end ================= -->
     </main>
-<?php require_once("footer.php");?>
+<?php require_once("footer.php");
