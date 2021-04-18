@@ -41,10 +41,16 @@
                             </div>
                 
                             </div>
-        
-                            <a href="coursebuy.php?cid=<?php echo $CourseID?>" class="btn">
-                             Byu Now
-                            </a>
+                            <?php
+                              if(isset($_SESSION['name'])||isset($_SESSION['email'])){ 
+                               echo'<a href="coursebuy.php?cid='.$CourseID.'" class="btn">
+                                        Check Now
+                                    </a>';
+                               }else{
+                            echo'<a href="singup.php?cid='.$CourseID.'" class="btn">Byu Now </a>';     
+                               }
+                            ?>
+                            
                         </div>
                     </div>
 

@@ -18,13 +18,33 @@ function  AddStudent($data){
     $checkemail = "SELECT  `email`, `mobile` FROM `student`
     WHERE `email` = '$data[1]' OR `mobile` = '$data[2]'";
     $checkresult = mysqli_query($GLOBALS['conn'],$checkemail);
-     $num = mysqli_num_rows($checkresult);
-    if($num<0){
+    $num = mysqli_num_rows($checkresult);
+    if($num<=0){
     $sql = "INSERT INTO `student`( `name`, `email`,`mobile`,`city`,`Country`,`password`) 
     VALUES ('$data[0]','$data[1]','$data[2]','$data[3]','$data[4]','$data[5]')";
     $result = mysqli_query($GLOBALS['conn'],$sql);
+    if($result){
+      $backpage = $data[6];
+      // session_start();
+      // $_SESSION['id'] = $row['id'];
+      $_SESSION['email'] = $data[1];
+      $_SESSION['name'] = $data[0];
+      $buycours ="http://localhost/collagepro/course-single.php?cid".$_SESSION["cid"];
+      if(strcmp($backpage,$buycours)){  
+        echo ("<script LANGUAGE='JavaScript'>
+              window.location.href='http://localhost/collagepro/coursebuy.php';
+             </script>");
+    }
+    else{
+        echo ("<script LANGUAGE='JavaScript'>
+           window.location.href='http://localhost/collagepro/courses.php';
+          </script>");
+    }
+      
     
-   }
+      }
+
+  }
     else{
       return true;
     }
@@ -40,10 +60,14 @@ function StudentLogin($email,$password,$path){
   print_r($row);
   echo "</pre>";
  if($data==1){
+  session_start();
   $_SESSION['id'] = $row['id'];
   $_SESSION['email'] = $email;
   $_SESSION['name'] = $row['name'];
-  header("Location:http://localhost/collagepro/student/");}
+  echo ("<script LANGUAGE='JavaScript'>
+    window.location.href='http://localhost/collagepro/student/';
+    </script>");  
+}
  else{
    return true;
 }

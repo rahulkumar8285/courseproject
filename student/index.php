@@ -1,7 +1,6 @@
 <?php
-session_start();
-session_unset();
-session_destroy();
-
+     session_start();
+     echo $_SESSION['email'];
+     echo $_SESSION['name'];
+    session_unset();     
 ?>
-<a href="http://localhost/collagepro/">back to home</a>

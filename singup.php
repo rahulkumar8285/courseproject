@@ -1,7 +1,39 @@
 <?php
   require_once("header.php");
   require_once("function.inc.php");
- $result=false;
+  $result=false;
+  if(isset($_SERVER['HTTP_REFERER'])){
+  echo $backpage = $_SERVER['HTTP_REFERER'];
+  }
+  echo $buycours ="http://localhost/collagro/course-single.php?cid=".$_SESSION["cid"];
+   if(strcmp($backpage,$buycours)==0){
+       echo"match ";
+
+   }
+   else{
+       echo"not match";
+   }
+
+  //   if($backpage == $buycours){  
+    
+//     // echo ("<script LANGUAGE='JavaScript'>
+//     //       window.location.href='http://localhost/collagepro/coursebuy.php';
+//     //      </script>");
+//     echo"string  match";   
+// }
+// else{
+//     echo"string not match";
+//     //     echo ("<script LANGUAGE='JavaScript'>
+//     //    window.location.href='http://localhost/collagepro/courses.php';
+//     //   </script>");
+    
+// }
+  
+
+
+
+  if(isset($_GET["cid"])){
+  $_SESSION["cid"] = $_GET['cid'];} 
   if(isset($_POST['addstudent'])){
   $full_name = $_POST['full-name'];
   $email = $_POST['email'];
@@ -9,9 +41,10 @@
   $city = $_POST['city'];
   $country = $_POST['country'];
   $password = $_POST['password'];
-  $data=[$full_name,$email,$mobile,$city,$country,$password];
-  $result = AddStudent($data); 
+  $data=[$full_name,$email,$mobile,$city,$country,$password ,$backpage];
+  //$result = AddStudent($data); 
 }
+// echo $_SERVER['HTTP_REFERER'];
 ?>
 <div class="container pt-5 py-5 ">
         <div class="row match-height">

@@ -73,7 +73,7 @@
                                 <div class="header-info-right">
                                 <?php
                                 session_start();
-                                if(isset($_SESSION['id'])||isset($_SESSION['name'])||isset($_SESSION['email'])){
+                                if(isset($_SESSION['name'])||isset($_SESSION['email'])){
                                     echo'<a href="http://localhost/collagepro/student/">
                                     <div class="media align-items-center">
                                      <h4 class="pl-2" >'.$_SESSION['name'].'</h4>
