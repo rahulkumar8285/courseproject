@@ -1,7 +1,7 @@
 <?php require_once("header.php");
       require_once("function.inc.php"); 
       $CourseID = $_GET['cid'];
-      $result = SelectData("course",$CourseID);
+      $result = SelectData("course","id",$CourseID);
       $Course = mysqli_fetch_assoc($result);
 ?>
   <div class="about-area pt-5">
@@ -42,6 +42,7 @@
                 
                             </div>
                             <?php
+                             
                               if(isset($_SESSION['name'])||isset($_SESSION['email'])){ 
                                echo'<a href="coursebuy.php?cid='.$CourseID.'" class="btn">
                                         Check Now

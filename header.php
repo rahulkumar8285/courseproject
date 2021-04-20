@@ -112,7 +112,7 @@
                                                 <?php $result = ShowData("coursecat");
                                              while($row = mysqli_fetch_assoc($result)){?>
                                                 <li><a
-                                                        href="course.php &courseid=<?php echo $row['id']?>"><?php echo $row['catname'];?></a>
+                                                        href="coursescatgrey.php?coursecat=<?php echo $row['id']?>"><?php echo $row['catname'];?></a>
                                                 </li>
                                                 <?php }
                                             ?>
