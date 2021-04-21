@@ -27,8 +27,8 @@ function  AddStudent($data){
     if($result){
       // session_start();
       // $_SESSION['id'] = $row['id'];
-      $_SESSION['email'] = $data[1];
-      $_SESSION['name'] = $data[0];
+      $_SESSION['stuemail'] = $data[1];
+      $_SESSION['stuname'] = $data[0];
       echo ("<script LANGUAGE='JavaScript'>
       window.location.href='http://localhost/collagepro/courses.php';
      </script>");
@@ -52,8 +52,8 @@ function StudentLogin($email,$password,$path){
  if($data==1){
   // session_start();
   // $_SESSION['id'] = $row['id'];
-  $_SESSION['email'] = $email;
-  $_SESSION['name'] = $row['name'];
+  $_SESSION['stuemail'] = $email;
+  $_SESSION['stuname'] = $row['name'];
    echo ("<script LANGUAGE='JavaScript'>
            window.location.href='http://localhost/collagepro/student/index.php';
           </script>");
@@ -65,11 +65,3 @@ function StudentLogin($email,$password,$path){
 }
 } 
 
-// function FaciltyLogin($email,$password){
-//   $sql="SELECT  `facilityusername`, `facilitypassword` FROM `facility` WHERE facilityusername= '$email'  AND facilitypassword =  '$password'";
-//   $result = mysqli_query($GLOBALS['conn'],$sql); 
-//   $data = mysqli_num_rows($result);
-//   if($data==1){
-//     header('location:http://localhost/collagepro/facility/');
-//   }
-// }

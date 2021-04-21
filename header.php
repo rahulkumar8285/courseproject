@@ -73,10 +73,10 @@
                                 <div class="header-info-right">
                                 <?php
                                 session_start();
-                                if(isset($_SESSION['name'])||isset($_SESSION['email'])){
+                                if(isset($_SESSION['stuname'])||isset($_SESSION['stuemail'])){
                                     echo'<a href="http://localhost/collagepro/student/">
                                     <div class="media align-items-center">
-                                     <h4 class="pl-2" >'.$_SESSION['name'].'</h4>
+                                     <h4 class="pl-2" >'.$_SESSION['stuname'].'</h4>
                                      <img src="assets/img/blog/author.png" alt="" class="profile">
                                     </div></a>';
                                 }else{

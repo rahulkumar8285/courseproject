@@ -43,7 +43,7 @@
                             </div>
                             <?php
                              
-                              if(isset($_SESSION['name'])||isset($_SESSION['email'])){ 
+                              if(isset($_SESSION['stuname'])||isset($_SESSION['stuemail'])){ 
                                echo'<a href="coursebuy.php?cid='.$CourseID.'" class="btn">
                                         Check Now
                                     </a>';

@@ -49,7 +49,7 @@
                                     <ul>
                                         <li><a href="#">Online Learning</a></li>
                                         <li><a href="#">About Us</a></li>
-                                        <li><a href="Facilty-login.php">Facility Login</a></li>
+                                        <li><a href="#">Facility Login</a></li>
                                         <li><a href="#">Press Center</a></li>
                                         <li><a href="#">Become an Instructor</a></li>
                                     </ul>
@@ -62,7 +62,7 @@
                                     <h4>Campus</h4>
                                     <ul>
                                         <li><a href="#">Our Plans</a></li>
-                                        <li><a href="#">Free Trial</a></li>
+                                        <li><a href="http://localhost/collagepro/facility/">Facility Login</a></li>
                                         <li><a href="#">Academic Solutions</a></li>
                                         <li><a href="#">Business Solutions</a></li>
                                         <li><a href="#"> Government Solutions</a></li>
