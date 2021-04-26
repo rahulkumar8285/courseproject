@@ -77,8 +77,7 @@
                                     echo'<a href="http://localhost/collagepro/student/">
                                     <div class="media align-items-center">
                                      <h4 class="pl-2" >'.$_SESSION['stuname'].'</h4>
-                                     <img src="assets/img/blog/author.png" alt="" class="profile">
-                                    </div></a>';
+                                      </div></a>';
                                 }else{
                                     echo '<ul>
                                     <li><a href="login.php"><i class="ti-user"></i>Login</a></li>

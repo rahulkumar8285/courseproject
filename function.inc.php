@@ -1,18 +1,35 @@
 <?php
 
 require_once("dbconfig.inc.php");
+
+function ShowDataCourse($tabelname){
+  $sql="SELECT * FROM $tabelname WHERE status =1  ORDER BY id DESC";
+  $result = mysqli_query($GLOBALS['conn'],$sql);
+  return $result;
+}
+// $result = ShowDataCourse('course');
+// $data = mysqli_fetch_all($result);
+// echo"<pre>";
+// print_r($data);
+// echo"</pre>";
+
+
 function ShowData($tabelname){
-  $sql = "SELECT * FROM $tabelname";
+  $sql = "SELECT * FROM $tabelname ORDER BY id DESC";
+  $result = mysqli_query($GLOBALS['conn'],$sql);
+  return $result;
+}
+
+function StatusCourse($tabel,$fild,$SelectId){
+  $sql = "SELECT * FROM `$tabel` WHERE $fild = '$SelectId' AND status =1 ORDER BY id DESC ";
   $result = mysqli_query($GLOBALS['conn'],$sql);
   return $result;
 }
 
 function SelectData($tabel,$fild,$SelectId){
-  $sql = "SELECT * FROM `$tabel` WHERE $fild = '$SelectId'";
+  $sql = "SELECT * FROM `$tabel` WHERE $fild = '$SelectId' ORDER BY id DESC ";
   $result = mysqli_query($GLOBALS['conn'],$sql);
   return $result;
-  
-
 }
 
 function  AddStudent($data){
@@ -28,7 +45,7 @@ function  AddStudent($data){
       // session_start();
       // $_SESSION['id'] = $row['id'];
       $_SESSION['stuemail'] = $data[1];
-      $_SESSION['stuname'] = $data[0];
+      $_SESSION['stuname'] = ucwords($data[0]);
       echo ("<script LANGUAGE='JavaScript'>
       window.location.href='http://localhost/collagepro/courses.php';
      </script>");
@@ -53,7 +70,7 @@ function StudentLogin($email,$password,$path){
   // session_start();
   // $_SESSION['id'] = $row['id'];
   $_SESSION['stuemail'] = $email;
-  $_SESSION['stuname'] = $row['name'];
+  $_SESSION['stuname'] = ucwords($row['name']);
    echo ("<script LANGUAGE='JavaScript'>
            window.location.href='http://localhost/collagepro/student/index.php';
           </script>");
@@ -65,3 +82,28 @@ function StudentLogin($email,$password,$path){
 }
 } 
 
+function FaciltyLogin($email,$password){
+  $sql="SELECT  * FROM `facility` WHERE facilityusername= '$email'  AND facilitypassword =  '$password'";
+  $result = mysqli_query($GLOBALS['conn'],$sql); 
+  $data = mysqli_num_rows($result);
+  $check = mysqli_fetch_assoc($result);
+  if($data==1){
+  session_start();
+  echo $_SESSION['faemail'] = $email;
+  echo $_SESSION['faid'] = $check['id'];
+    echo ("<script LANGUAGE='JavaScript'>
+           window.location.href='http://localhost/collagepro/facility/';
+          </script>");
+  }
+}
+
+function UpdatePswd($tabel,$email,$password,$id){
+  $sql="UPDATE `$tabel` SET `email`='$email',`password`='$password' WHERE `id` =$id";
+  $result = mysqli_query($GLOBALS['conn'],$sql);
+  if(mysqli_affected_rows($GLOBALS['conn'])==1){
+    echo ("<script LANGUAGE='JavaScript'>
+           window.location.href='http://localhost/collagepro/login.php';
+          </script>");
+  }
+
+}

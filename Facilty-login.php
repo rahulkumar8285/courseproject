@@ -1,14 +1,20 @@
 <?php
 include_once("header.php");
 include_once("function.inc.php");  
+if(isset($_SESSION["faemail"]) || isset($_SESSION["faid"])){
+    echo ("<script LANGUAGE='JavaScript'>
+    window.location.href='http://localhost/collagepro/facility/';
+   </script>");
+}
 if(isset($_POST['faclogin'])){
    $email =  $_POST['email-id'];
    $pwd = $_POST['password'];
    FaciltyLogin($email,$pwd);
 }?>
+
 <section id="basic-horizontal-layouts">
- <div class="container">
-        <div class="row match-height">
+ <div class="container pt-5 py-5">
+        <div class="row match-height justify-content-center">
             <div class="col-md-6 col-12">
                 <div class="card">
                     <div class="card-header">
@@ -16,7 +22,7 @@ if(isset($_POST['faclogin'])){
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form form-horizontal" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+                            <form class="form form-horizontal" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" onsubmit="return login(this);" >
                                 <div class="form-body">
                                     <div class="row">
                                         
@@ -46,12 +52,11 @@ if(isset($_POST['faclogin'])){
                                                 </div>
                                             </div>
 
-                                            <input type="submit" class="btn btn-primary me-1 mb-1" name='faclogin' >Submit</input>
+                                            <input type="submit" class="btn btn-primary me-1 mb-1" name='faclogin' ></input>
                                         </div>
                                         <div class="col-sm-12 d-flex justify-content-end">
                                            
-                                            <button type="reset"
-                                                class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                            <button type="reset"class="btn btn-light-secondary me-1 mb-1">Reset</button>
                                         </div>
                                     </div>
                                 </div>

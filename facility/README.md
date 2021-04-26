@@ -1,61 +1,9 @@
-# Kiaalap admin dashboard
-Free admin dashboard template
+# Ready-Bootstrap-Dashboard
+![](https://i.imgur.com/8hYeuW3.png)
+Free Bootstrap 4 Admin Dashboard
 
-# Preview
+If you are a developer or website owner who needs to work on the dashboard and want to have a beautiful design while doing it, the Ready Bootstrap Dashboard is for you.
 
-![Kiaalap admin dashboard template preview](https://colorlib.com/wp/wp-content/uploads/sites/2/kiaalap-free-bootstrap-admin-dashboard-template.jpg)
+Ready Bootstrap Dashboard is a Boostrap 4 Dashboard kit we developed and shared for free that you can use for your next web project.
 
-# Overview
-Kiaalap is a full-featured, multipurpose, premium bootstrap admin template built with Bootstrap 4 Framework, HTML5, CSS and JQuery.
-
-It is a fully responsive bootstrap admin template/bootstrap admin dashboard template that comes with a huge collection of reusable UI components & plugins.
-
-We believe we have covered everything you need to set up an All kind of website.If there is something that you would like to know then we are happy to help you out.
-
-# Template Features:
-
-- 50+ PAGES
-- VALID HTML5 & CSS3
-- MATERIAL DESIGN
-- RESPONSIVE LAYOUT
-- 3 HOME VERSIONS
-- NEAT, CLEAN AND SIMPLE DESIGN
-- CREATIVE AND MODERN DESIGN
-- BUILT BASED ON BOOTSTRAP 3+
-- FULLY RESPONSIVE
-- CROSS BROWSER OPTIMIZATION
-- WELL COMMENTED HTML & CSS FILES
-- GOOGLE FONTS
-- GOOGLE MAP
-- C3 AND D3 CHARTS
-- PLOT CHART
-- PEITY CHARTS
-- SPARKLINES
-- CHOSEN
-- CODEMIRROR
-- COLORPICKER
-- IMAGES CROPPER
-- DATA MAP
-- DATEPICKER
-- X-EDITABLE
-- DUAL LISTBOX
-- GOOGLE MAPS
-- ICHECK
-- RANGESLIDER
-- JVECTORMAP
-- KNOB
-- MAPAEL
-- PASSWORD METER
-- PDF VIEWER
-- TOUCHSPIN
-- JSTREE
-- LOBIBOX
-- SUMMERNOTE
-
-# Other resources:
-
-- [Bootstrap Dashboards](https://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/)
-- [Angular Dashboards](https://colorlib.com/wp/angularjs-admin-templates/)
-- [Free Admin Dashboards](https://colorlib.com/wp/free-html5-admin-dashboard-templates/)
-- [Website Templates](https://colorlib.com/wp/templates/)
-- [Free WordPress Themes](https://colorlib.com/wp/free-wordpress-themes/)
+We make it with a minimalist design, fast, and easy to use. There is a sidebar on the left, a top menu, and a main panel where you can put the components you need. Available components you need include cards, charts, notifications, maps, buttons, inputs and more.

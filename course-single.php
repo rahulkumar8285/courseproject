@@ -10,7 +10,7 @@
                     
                     <div class="col-lg-6 col-md-12">
                         <!-- about-img -->
-                        <img src="upload/course/test1.jpg" class="img-fluid"  alt="">
+                        <img src="./upload/course/<?php echo $Course['imgpath'] ?>" class="img-fluid"  alt="">
                     </div>
                     <div class="col-lg-6 col-md-12">
                         <div class="about-caption mb-50">

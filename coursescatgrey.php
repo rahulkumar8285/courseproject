@@ -4,7 +4,7 @@
 if(isset($_GET['coursecat'])){
  echo $coursecat = $_GET['coursecat'];
  $result = SelectData('course','councatg',$coursecat);
- $catagre = SelectData('coursecat','id',7);
+ $catagre = SelectData('coursecat','id',$_GET['coursecat']);
  $catname =  mysqli_fetch_assoc($catagre);
 // echo "<pre>";
 //  print_r($catname);

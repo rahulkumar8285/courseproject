@@ -62,7 +62,7 @@
                                     <h4>Campus</h4>
                                     <ul>
                                         <li><a href="#">Our Plans</a></li>
-                                        <li><a href="http://localhost/collagepro/facility/">Facility Login</a></li>
+                                        <li><a href="Facilty-login.php">Facility Login</a></li>
                                         <li><a href="#">Academic Solutions</a></li>
                                         <li><a href="#">Business Solutions</a></li>
                                         <li><a href="#"> Government Solutions</a></li>

@@ -210,18 +210,19 @@
                         <!-- Section Tittle -->
                         <div class="section-tittle text-center mb-70">
                             <span>Most Popular Course Of This Week</span>
-                            <h2>Our Popular Course</h2>
+                            <h2>Our Letes Course</h2>
                         </div> 
                     </div>
                 </div>
                 <div class="row">
                     <?php 
-                    $result = ShowData("course");
+                    $result = ShowDataCourse("course");
+                    $Numofdata = 0;
                     while($row = mysqli_fetch_assoc($result)){?>
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-course mb-40">
                             <div class="course-img">
-                                <img src="assets/img/gallery/popular_sub1.png" alt="">
+                                <img src="./upload/course/<?php echo $row['imgpath'];?>" alt="">
                             </div>
                             <div class="course-caption">
                                 <div class="course-cap-top">
@@ -247,7 +248,10 @@
                             </div>
                         </div>
                     </div>
-                    <?php }?>
+                    <?php
+                    $Numofdata ++;
+                 if($Numofdata == 6){break;}
+                }?>
                 </div>
                 <!-- Section Button -->
                 <div class="row">

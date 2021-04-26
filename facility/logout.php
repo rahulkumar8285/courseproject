@@ -1,7 +1,9 @@
 <?php
-session_start();
-echo $_SESSION['fa_username'];
-echo $_SESSION['fa_name'];
-
-session_unset();
-session_destroy();
+  
+  session_start();
+  echo $_SESSION['faemail'];
+  echo $_SESSION['faid'];
+  session_unset();
+  header("Location:http://localhost/collagepro/")
+    
+?>
