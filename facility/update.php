@@ -40,7 +40,7 @@ if(isset($_POST['update'])){
     <div class="content">
         <div class="container-fluid">
             <h4 class="page-title">Update Your Course Data</h4>
-           <?php
+            <?php
             if($result){
                 echo '<div class="alert alert-success" role="alert">
                You Data Not Update An Non Error!
@@ -48,7 +48,7 @@ if(isset($_POST['update'])){
              }
              
            ?>
-            <form action="<?php $_SERVER['PHP_SELF'] ?>"  method="POST" onsubmit="return AddData(this)" >
+            <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" onsubmit="return AddData(this)">
                 <div class="card">
                     <div class="card-header">
                         <div class="card-title">Base Form Control</div>
@@ -60,7 +60,7 @@ if(isset($_POST['update'])){
                                 <div class="form-group">
                                     <label for="coursename">Course Name</label>
                                     <input type="text" class="form-control" id="coursename" name="coursename"
-                                      value="<?php echo $num['coursename']  ?>"  >
+                                        value="<?php echo $num['coursename']  ?>">
                                     <small id="emailHelp" class="form-text text-muted">
                                         Enter Couser Name To Search High.
                                     </small>
@@ -70,14 +70,14 @@ if(isset($_POST['update'])){
                                 <div class="form-group">
                                     <label for="ProjectName">Deploye Project Name</label>
                                     <input type="text" class="form-control" id="ProjectName" name="ProjectName"
-                                    value="<?php echo $num['project']  ?>" >
+                                        value="<?php echo $num['project']  ?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="SellPrice">Sell Price</label>
                                     <input type="number" class="form-control" name="SellPrice" id="SellPrice"
-                                    value="<?php echo $num['price']  ?>" >
+                                        value="<?php echo $num['price']  ?>">
                                     <small id="emailHelp" class="form-text text-muted">This is High Price To Show The
                                         Student</small>
                                 </div>
@@ -86,7 +86,7 @@ if(isset($_POST['update'])){
                                 <div class="form-group">
                                     <label for="purchaserprice">Purchaser Price</label>
                                     <input type="number" class="form-control" id="purchaserprice" name="purchaserprice"
-                                    value="<?php echo $num['sellprice']  ?>" >
+                                        value="<?php echo $num['sellprice']  ?>">
                                     <small id="emailHelp" class="form-text text-muted">This Price Student Buy You
                                         Course</small>
                                 </div>
@@ -95,7 +95,7 @@ if(isset($_POST['update'])){
                                 <div class="form-group">
                                     <label for="CoupenCode">Enter The Coupen Code</label>
                                     <input type="text" class="form-control" name="CoupenCode" id="CoupenCode"
-                                    value="<?php echo $num['coupencode']  ?>" >
+                                        value="<?php echo $num['coupencode']  ?>">
 
                                 </div>
                             </div>
@@ -103,8 +103,8 @@ if(isset($_POST['update'])){
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Select Course Catagrey</label>
                                     <select class="form-control" id="selectcat" name="selectcat">
-                                        <?php $coucat = CatName($num['councatg']) ;?>
-                                        <option value="<?php echo $num['councatg'] ?>" ><?php echo $coucat;?></option> 
+                                        <?php $coucat = CatName('coursecat',$num['councatg']) ;?>
+                                        <option value="<?php echo $num['councatg'] ?>"><?php echo $coucat;?></option>
                                         <?php $result = ShowData("coursecat");
                                              while($row = mysqli_fetch_assoc($result)){?>
                                         <option value="<?php echo $row['id'];?>"><?php echo $row['catname'];?></option>
@@ -115,16 +115,14 @@ if(isset($_POST['update'])){
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="ShortDiscretion">Short Discretion</label>
-                                    <textarea class="form-control" id="ShortDiscretion" name="ShortDiscretion" rows="3"
-                                    ><?php echo $num['shotdescription'] ?>
+                                    <textarea class="form-control" id="ShortDiscretion" name="ShortDiscretion" rows="3"><?php echo $num['shotdescription'] ?>
 									</textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="LongDiscretion">Long Discretion</label>
-                                    <textarea class="form-control" id="LongDiscretion" name="LongDiscretion" 
-                                    rows="8">
+                                    <textarea class="form-control" id="LongDiscretion" name="LongDiscretion" rows="8">
                                     <?php echo $num['discretion'];?>
 									</textarea>
                                 </div>
@@ -133,14 +131,14 @@ if(isset($_POST['update'])){
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Select Publis Course</label>
                                     <select class="form-control" id="status" name="status">
-                                       <?php if($num['status']==0){?>
-                                         <option value="0">Draf</option>
-                                       <?php }else{?>
-                                         <option value="1">Public</option>   
-                                      <?php }?>
-                                      <option value="0">Draf</option>
-                                      <option value="1">Public</option>
-                                      
+                                        <?php if($num['status']==0){?>
+                                        <option value="0">Draf</option>
+                                        <?php }else{?>
+                                        <option value="1">Public</option>
+                                        <?php }?>
+                                        <option value="0">Draf</option>
+                                        <option value="1">Public</option>
+
                                     </select>
                                 </div>
                             </div>
@@ -157,7 +155,7 @@ if(isset($_POST['update'])){
                                 <div class="form-group">
                                     <label for="exampleFormControlFile1">Course Details Files</label>
                                     <input type="file" class="form-control-file" id="coursedetailsfile"
-                                        name="coursedetailsfile" value=""  >
+                                        name="coursedetailsfile" value="">
                                     <small class="text-danger" id="errorfile"></small>
                                     <h6 class="text-sucsse"><?php echo $num['file'] ?></h6>
                                 </div>
@@ -168,7 +166,7 @@ if(isset($_POST['update'])){
                                     <span class="form-check-sign">Agree with terms and conditions</span>
                                 </label>
                             </div>
-                           
+
                         </div>
                     </div>
                     <div class="card-action">

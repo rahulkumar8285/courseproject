@@ -8,11 +8,22 @@
     if($num ==1){$file=true;}
     echo"this is forget btn";
  }
+ 
+//   $url = $_SERVER['HTTP_REFERER'];
+//   $file_name = basename(parse_url($url, PHP_URL_PATH));
+//   echo $file_name;
+//   if($file_name = "login.php")
+//   {
+//       echo"string match";
+//   }
+
+
  if(isset($_POST['submit'])){
      echo $_POST['email'];
      echo $_POST['password'];
      echo $_POST['id'];
-    UpdatePswd('student',$_POST['email'],$_POST['password'],$_POST['id']);
+    
+     UpdatePswd('student',$_POST['email'],$_POST['password'],$_POST['id']);
  }
 ?>
  <section id="categories-area ">
@@ -21,7 +32,7 @@
             <div class="col-md-6 col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Student Forget Password Form</h4>
+                        <h4 class="card-title">Forget Password Form</h4>
                     </div>
                     <div id="errormsg">
 

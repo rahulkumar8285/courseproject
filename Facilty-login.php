@@ -1,28 +1,38 @@
 <?php
 include_once("header.php");
 include_once("function.inc.php");  
+$result = false;
 if(isset($_SESSION["faemail"]) || isset($_SESSION["faid"])){
     echo ("<script LANGUAGE='JavaScript'>
     window.location.href='http://localhost/collagepro/facility/';
    </script>");
 }
 if(isset($_POST['faclogin'])){
-   $email =  $_POST['email-id'];
-   $pwd = $_POST['password'];
-   FaciltyLogin($email,$pwd);
-}?>
-
+    echo  $email =  $_POST['email-id'];
+    echo $pwd = md5($_POST['password']);   
+    $result = FaciltyLogin($email,$pwd);
+}?> 
 <section id="basic-horizontal-layouts">
  <div class="container pt-5 py-5">
         <div class="row match-height justify-content-center">
             <div class="col-md-6 col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Horizontal Form</h4>
+                        <h4 class="card-title">Facility Form</h4>
                     </div>
                     <div class="card-content">
+                    <?php
+                     if($result){
+                         echo '
+                         <div class="alert alert-danger" role="alert">
+                         You Email And Password Not Match!
+                       </div>
+                         ';
+
+                     }
+                    ?>
                         <div class="card-body">
-                            <form class="form form-horizontal" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" onsubmit="return login(this);" >
+                            <form class="form form-horizontal" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
                                 <div class="form-body">
                                     <div class="row">
                                         
@@ -31,7 +41,7 @@ if(isset($_POST['faclogin'])){
                                             <label>Email</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="email" id="email-id"  class="form-control" name="email-id"
+                                            <input type="email" id="email"  class="form-control" name="email-id"
                                                 placeholder="Email">
                                         </div>
                                        
@@ -56,7 +66,7 @@ if(isset($_POST['faclogin'])){
                                         </div>
                                         <div class="col-sm-12 d-flex justify-content-end">
                                            
-                                            <button type="reset"class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                            <a href="forgetpsd.php" type="reset"class="btn btn-light-secondary me-1 mb-1">Reset</a>
                                         </div>
                                     </div>
                                 </div>

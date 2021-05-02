@@ -8,14 +8,17 @@
      '$Course[SellPrice]','$Course[selectcat]','$Course[authoid]',
      '$Course[authoname]','$Course[ProjectName]','$Course[Thumbnailimage]',
      '$Course[purchaserprice]','$Course[ShortDiscretion]','$Course[CoupenCode]',
-     '$Course[coursedetailsfile]','$Course[status]') ";
-      if(mysqli_query($GLOBALS['conn'],$sql) or die("Error query Not run ".mysqli_error())){
-        return true;
+     '$Course[coursedetailsfile]','$Course[status]')";
+      mysqli_query($GLOBALS['conn'],$sql) or die("Error query Not run ".mysqli_error());
+        if(mysqli_affected_rows($GLOBALS['conn'])==1){
+          echo ("<script LANGUAGE='JavaScript'>
+          window.location.href='http://localhost/collagepro/facility/totalcourse.php';
+         </script>");
       } 
       else{
         return false;
       }
-   
+    
 }
 
 function TotalNum($tabel,$fild,$SelectId){
@@ -25,22 +28,16 @@ function TotalNum($tabel,$fild,$SelectId){
  return $num; 
 }
 
-function CatName($SelectId){
-$sql = "SELECT * FROM `coursecat` WHERE `id` = '$SelectId'";
+function CatName($tabel,$SelectId){
+$sql = "SELECT * FROM `$tabel` WHERE `id` =  $SelectId";
 $result = mysqli_query($GLOBALS['conn'],$sql);
-$num = mysqli_fetch_assoc($result);
-return $num['catname'];
+$num = mysqli_fetch_all($result);
+return $num[0][1];
 }
 // $result = SelectData('course','id',8);
 // $data = mysqli_fetch_assoc($result);
 //  print_r($data);
 function UpdateCourse($Course,$id){
-//   $sql="UPDATE `course` SET coursename=$Course[coursename],discretion=$Course[LongDiscretion],
-//  price=$Course[SellPrice],councatg=$Course[selectcat],
-//  project=$Course[ProjectName],imgpath=$Course[Thumbnailimage],
-//  `sellprice`='$Course[purchaserprice]',`shotdescription`='$Course[ShortDiscretion]',
-//  `coupencode`='$Course[CoupenCode]',`file`='$Course[coursedetailsfile]',`status`='$Course[status]' WHERE $id";
-// print_r($Course);
 $sql="UPDATE course SET `coursename`='$Course[coursename]',`project`='$Course[project]',
 `discretion`='$Course[LongDiscretion]',`price`='$Course[SellPrice]',
 `councatg`='$Course[selectcat]',`imgpath`='$Course[Thumbnailimage]',
@@ -57,17 +54,64 @@ $result = mysqli_query($GLOBALS['conn'],$sql);
     return true;
    }
 }
+function DeleteAll($id){
+   echo $sql="DELETE FROM `course` WHERE `course`.`id` = $id";
+   $result = mysqli_query($GLOBALS['conn'],$sql);
+   header("refresh:");
+}
 
-function DeleteId($tabel,$id){
+// function DeIncrment($tabel,$id){
+//   $sql = "UPDATE `$tabel` SET `totalvideo`=`totalvideo`-1 WHERE `id`=$id";
+//   $result = mysqli_query($GLOBALS['conn'],$sql);
+//   if(mysqli_affected_rows($GLOBALS['conn'])==1){
+//     return true;
+//   }
+// }
+
+// DeIncrment('course',$id);
+
+function DeleteId($tabel,$id,$cd){
   $sql = "DELETE FROM `$tabel` WHERE id=$id";
-  $result = mysqli_query($GLOBALS['conn'],$sql);
-   if(mysqli_affected_rows($GLOBALS['conn'])==1){
-    echo ("<script LANGUAGE='JavaScript'>
-    window.location.href='http://localhost/collagepro/facility/totalcourse.php';
-   </script>");
-   }
+  mysqli_multi_query($GLOBALS['conn'],$sql); 
+  if(mysqli_affected_rows($GLOBALS['conn'])==1){
+    $sql = "UPDATE `course` SET `totalvideo`=`totalvideo`-1 WHERE `id`=$cd";
+    $result = mysqli_query($GLOBALS['conn'],$sql);
+    if(mysqli_affected_rows($GLOBALS['conn'])==1){
+      return true;
+    }
+    } 
 }
 
 
-?>
 
+function UpdateCount($tabel,$id){
+  $sql = "UPDATE  `$tabel` SET  totalvideo = totalvideo +1 WHERE id = '$id'";
+  $result = mysqli_query($GLOBALS['conn'],$sql);
+  if(mysqli_affected_rows($GLOBALS['conn'])==1){
+    return true;
+  }
+}
+
+
+function AddVideo($data){
+  $sql="INSERT INTO `video`( `videonum`, `video`, `coursename`, `videopath`,`status`,`facilityid`,`facilityemail`,`auth`) 
+  VALUES ('$data[0]','$data[1]','$data[2]','$data[3]','$data[4]','$data[5]','$data[6]','$data[7]')";
+  if(mysqli_multi_query($GLOBALS['conn'],$sql) or die("Error query Not run ".mysqli_error())){
+    return UpdateCount('course',$data[2]);
+  } 
+  else{
+    return false;
+  }
+}
+
+function UpdateVideo($data,$id){
+   $sql=" UPDATE `video` SET `videonum`='$data[0]',`video`='$data[1]',
+   `coursename`='$data[2]',`videopath`='$data[3]',`status`='$data[4]'
+   WHERE 'id'= '$id' ";
+   $result = mysqli_query($GLOBALS['conn'],$sql);
+   if(mysqli_affected_rows($GLOBALS['conn'])==1){
+     return true;
+   }
+}
+
+?>

@@ -59,34 +59,46 @@
                                         <?php $result = ShowDataCourse("course");
                                                  while($row = mysqli_fetch_assoc($result)){?>
                                         <div class="col-xl-4 col-lg-4 col-md-6">
-                                            <!-- Single course -->
-                                            <div class="single-course mb-70">
+                                            <div class="single-course mb-40">
                                                 <div class="course-img">
-                                                    <img src="assets/img/gallery/popular_sub1.png" alt="">
+                                                    <img src="./upload/course/<?php echo $row['imgpath'];?>" alt="">
                                                 </div>
                                                 <div class="course-caption">
                                                     <div class="course-cap-top">
-                                                        <h4><a href="#"><?php echo $row['coursename'];?></a></h4>
+                                                        <h4><a
+                                                                href="course-single.php?cid=<?php echo $row['id'] ?>"><?php echo ucwords($row['coursename']);?></a>
+                                                        </h4>
                                                     </div>
+                                                    <p>
+                                                        <?php echo substr($row['shotdescription'],0,130)."...";?>
+                                                    </p>
                                                     <div class="course-cap-mid d-flex justify-content-between">
-                                                        <div class="course-ratting">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
+                                                        <!-- <div class="course-ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div> -->
+                                                    </div>
+                                                    <div class="d-flex flex-row align-items-center">
+                                                        <div class="">
+                                                            <h3>INR <?php echo $row['sellprice']; ?></h3>
                                                         </div>
-                                                        <ul>
-                                                            <li>52 Review</li>
-                                                        </ul>
+                                                        <div class="ml-2">
+                                                            <h4><del><?php echo $row['price']; ?></del></h4>
+                                                        </div>
+                                                        <div>
+
+                                                        </div>
                                                     </div>
-                                                    <div class="course-cap-bottom d-flex justify-content-between">
-                                                        <ul>
-                                                            <li><i class="ti-user"></i> 562</li>
-                                                            <li><i class="ti-heart"></i> 562</li>
-                                                        </ul>
-                                                        <span>Free</span>
-                                                    </div>
+                                                    <!-- <div class="course-cap-bottom d-flex justify-content-between">
+                                    <ul>
+                                        <li><i class="ti-user"></i> 562</li>
+                                        <li><i class="ti-heart"></i> 562</li>
+                                    </ul>
+                                    <span>Enroll Now</span>
+                                </div> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -102,36 +114,48 @@
                                     <div class="row">
                                         <?php 
                                            $cousedata = StatusCourse('course','councatg',$row['id']);
-                                            while($rows = mysqli_fetch_assoc($cousedata)){ ?>
+                                            while($row = mysqli_fetch_assoc($cousedata)){ ?>
                                         <div class="col-xl-4 col-lg-4 col-md-6">
-                                            <!-- Single course -->
-                                            <div class="single-course mb-70">
+                                            <div class="single-course mb-40">
                                                 <div class="course-img">
-                                                    <img src="assets/img/gallery/popular_sub3.png" alt="">
+                                                    <img src="./upload/course/<?php echo $row['imgpath'];?>" alt="">
                                                 </div>
                                                 <div class="course-caption">
                                                     <div class="course-cap-top">
-                                                        <h4><?php echo $rows['coursename'];?></h4>
+                                                        <h4><a
+                                                                href="course-single.php?cid=<?php echo $row['id'] ?>"><?php echo ucwords($row['coursename']);?></a>
+                                                        </h4>
                                                     </div>
+                                                    <p>
+                                                        <?php echo substr($row['shotdescription'],0,130)."...";?>
+                                                    </p>
                                                     <div class="course-cap-mid d-flex justify-content-between">
-                                                        <div class="course-ratting">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
+                                                        <!-- <div class="course-ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div> -->
+                                                    </div>
+                                                    <div class="d-flex flex-row align-items-center">
+                                                        <div class="">
+                                                            <h3>INR <?php echo $row['sellprice']; ?></h3>
                                                         </div>
-                                                        <ul>
-                                                            <li>52 Review</li>
-                                                        </ul>
+                                                        <div class="ml-2">
+                                                            <h4><del><?php echo $row['price']; ?></del></h4>
+                                                        </div>
+                                                        <div>
+
+                                                        </div>
                                                     </div>
-                                                    <div class="course-cap-bottom d-flex justify-content-between">
-                                                        <ul>
-                                                            <li><i class="ti-user"></i> 562</li>
-                                                            <li><i class="ti-heart"></i> 562</li>
-                                                        </ul>
-                                                        <span>Free</span>
-                                                    </div>
+                                                    <!-- <div class="course-cap-bottom d-flex justify-content-between">
+                                    <ul>
+                                        <li><i class="ti-user"></i> 562</li>
+                                        <li><i class="ti-heart"></i> 562</li>
+                                    </ul>
+                                    <span>Enroll Now</span>
+                                </div> -->
                                                 </div>
                                             </div>
                                         </div>

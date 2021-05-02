@@ -1,0 +1,13 @@
+Hello 
+This is Course selling site base Core Php include many funcinility.
+1 ->Student singup,login,buy course.
+2 ->facility singup with admin permission. 
+3 ->facility upload course , video and Details.
+4 ->Admin active and unactive facility or check all details linke course,video.
+5 ->upload image.
+
+how to install this project select you directory and cmd clone https://github.com/rahulkumar8285/courseproject.git.
+
+step 1 create Db name is collagepro import my collagepro sql file 
+step 2 run index footer section include all link.
+step 3 access than login.

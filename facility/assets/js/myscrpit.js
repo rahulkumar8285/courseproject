@@ -29,8 +29,20 @@ function AddData(data){
 }
 
 function confirmDelete(self){
-    // alert("function run");
     var id = self.getAttribute("data-id");
     document.getElementById("form-delete-user").deleteid.value = id;
     $("#myModal").modal("show");
+    
+}
+
+function coursedelvideo(self){
+    alert("run");
+    var id = self.getAttribute("data-id");
+    var cd = self.getAttribute("data-cd");
+    alert(id);
+    alert(cd);
+    document.getElementById("form-delete-user").deleteid.value = id;
+    document.getElementById("form-delete-user").deletecd.value = cd;
+    $("#myModal").modal("show");
+    
 }

@@ -1,4 +1,6 @@
-<?php require_once('function.inc.php');?>
+<?php 
+session_start();
+require_once('function.inc.php');?>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -72,7 +74,7 @@
                                 </div>
                                 <div class="header-info-right">
                                 <?php
-                                session_start();
+                                
                                 if(isset($_SESSION['stuname'])||isset($_SESSION['stuemail'])){
                                     echo'<a href="http://localhost/collagepro/student/">
                                     <div class="media align-items-center">

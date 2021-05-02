@@ -1,7 +1,7 @@
 <?php include_once('header.php'); 
    require_once('facility.function.php');
    if(isset($_POST['delete'])){
-    DeleteAll($_POST['deleteid']);
+    DeleteId('video',$_POST['deleteid'],$_POST['deletecd']);
    }
 ?>
 <div class="main-panel">
@@ -19,37 +19,38 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Course Id</th>
+                                        <th scope="col">Video Id</th>
+                                        <th scope="col">Video Sno</th>
+                                        <th scope="col">Video Name</th>
                                         <th scope="col">Course Name</th>
-                                        <th scope="col">Selling Price</th>
-                                        <th scope="col">Course Catagrey</th>
-                                        <th scope="col">Public Date</th>
-                                        <th scope="col">Coupan Code</th>
-                                        <th scope="col">Tottal Video</th>
+                                        <th scope="col">Auth</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Delete Operation</th>
-                                        <th scope="col">Update Operation</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
 
 
                                     <?php 
-                        $result =  SelectData('course','authorid',$_SESSION['faid']);
+                        $result =  SelectData('video','facilityid',$_SESSION['faid']);
                         while($data = mysqli_fetch_assoc($result)){?>
                                     <tr>
                                         <td><?php echo $data['id'];?></td>
-                                        <td><?php echo $data['coursename'];?></td>
+                                        <td><?php echo $data['videonum'];?></td>
                                         <td>
-                                            <?php echo $data['sellprice'];?>
+                                            <?php echo $data['video'];?>
                                         </td>
                                         <td><?php
-                                echo CatName('coursecat',$data['councatg']);
-                              ?></td>
-                                        <td><?php echo $data['publisdate'];?></td>
-                                        <td><?php echo $data['coupencode'];?></td>
-                                        <td><?php echo $data['totalvideo'];?></td>
-                                        
+                                            echo CatName('course',$data['coursename']);
+                                            ?></td>
+                                        <td>
+                                            <?php if($data['auth']){
+                                            echo "Free";}
+                                            else{
+                                              echo "Paid";
+                                            } ?>
+                                        </td>
                                         <td>
                                             <?php if($data['status']){
                                             echo "Publis";}
@@ -58,17 +59,16 @@
                                             } ?>
                                         </td>
                                         <td>
-                                           
+
                                             <button type="button" class="btn btn-danger" data-toggle="modal"
-                                                data-target="#deletmodel" onclick="confirmDelete(this);" data-id="<?php echo $data['id'];?>">
+                                                data-target="#deletmodel" onclick="coursedelvideo(this);"
+                                                data-id="<?php echo $data['id'];?>" 
+                                                data-cd="<?php echo $data['coursename'] ;?>" >
                                                 Delete
                                             </button>
 
                                         </td>
-                                        <td>
-                                            <a class="btn btn-warning"
-                                                href="update.php?cosid=<?php echo $data['id'];?>">Update</a>
-                                        </td>
+
                                     </tr>
                                     <?php } ?>
 
@@ -97,13 +97,14 @@
                 <p>Are you sure you want to delete this user ? <?php echo $data['id']; ?></p>
                 <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>" id="form-delete-user">
                     <input type="hidden" name="deleteid">
+                    <input type="hidden" name="deletecd">
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="submit" form="form-delete-user" name="delete" class="btn btn-danger">Delete</button>
             </div>
- 
+
         </div>
     </div>
 </div>

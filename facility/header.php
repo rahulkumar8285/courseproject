@@ -22,8 +22,8 @@ session_start();
     <div class="wrapper">
         <div class="main-header">
             <div class="logo-header">
-                <a href="index.html" class="logo">
-                    Ready Dashboard
+                <a href="http://localhost/collagepro/" class="logo">
+                    OnlineEDU
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
                     data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,35 +79,7 @@ session_start();
                                                 <span class="time">5 minutes ago</span>
                                             </div>
                                         </a>
-                                        <a href="#">
-                                            <div class="notif-icon notif-success"> <i class="la la-comment"></i> </div>
-                                            <div class="notif-content">
-                                                <span class="block">
-                                                    Rahmad commented on Admin
-                                                </span>
-                                                <span class="time">12 minutes ago</span>
-                                            </div>
-                                        </a>
-                                        <a href="#">
-                                            <div class="notif-img">
-                                                <img src="assets/img/profile2.jpg" alt="Img Profile">
-                                            </div>
-                                            <div class="notif-content">
-                                                <span class="block">
-                                                    Reza send messages to you
-                                                </span>
-                                                <span class="time">12 minutes ago</span>
-                                            </div>
-                                        </a>
-                                        <a href="#">
-                                            <div class="notif-icon notif-danger"> <i class="la la-heart"></i> </div>
-                                            <div class="notif-content">
-                                                <span class="block">
-                                                    Farrah liked Admin
-                                                </span>
-                                                <span class="time">17 minutes ago</span>
-                                            </div>
-                                        </a>
+                                     
                                     </div>
                                 </li>
                                 <li>
@@ -126,17 +98,11 @@ session_start();
                                         <div class="u-img"><img src="assets/img/profile.jpg" alt="user"></div>
                                         <div class="u-text">
                                             <h4><?php echo $row['name'];?> </h4>
-                                            <p class="text-muted"><?php echo $row['facilityusername'];?> </p><a href="profile.html"
+                                            <p class="text-muted"><?php echo $row['email'];?> </p><a href="profile.html"
                                                 class="btn btn-rounded btn-danger btn-sm">View Profile</a>
                                         </div>
                                     </div>
                                 </li>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="ti-user"></i> My Profile</a>
-                                <a class="dropdown-item" href="#"></i> My Balance</a>
-                                <a class="dropdown-item" href="#"><i class="ti-email"></i> Inbox</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="ti-settings"></i> Account Setting</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="logout.php"><i class="fa fa-power-off"></i> Logout</a>
                             </ul>
@@ -156,13 +122,13 @@ session_start();
                         <a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                             <span>
                             <?php echo $row['name'];?>
-                                <span class="user-level"><?php echo $row['facilityusername'];?></span>
+                                <span class="user-level"><?php echo $row['email'];?></span>
                                 <span class="caret"></span>
                             </span>
                         </a>
                         <div class="clearfix"></div>
 
-                        <div class="collapse in" id="collapseExample" aria-expanded="true" style="">
+                        <!-- <div class="collapse in" id="collapseExample" aria-expanded="true" style="">
                             <ul class="nav">
                                 <li>
                                     <a href="#profile">
@@ -180,7 +146,7 @@ session_start();
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <ul class="nav">
@@ -193,49 +159,37 @@ session_start();
                     </li>
                     <li class="nav-item">
                         <a href="addcourse.php">
-                            <i class="la la-table"></i>
+                            <i class="la la-plus-circle"></i>
                             <p>Add Course</p>
                         </a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item ">
                         <a href="totalcourse.php">
-                            <i class="la la-keyboard-o"></i>
+                            <i class="la la-files-o"></i>
                             <p>Total Course</p>
                             <span class="badge badge-success"><?php echo TotalNum('course','authorid',$_SESSION['faid']); ?> </span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="tables.html">
-                            <i class="la la-th"></i>
-                            <p>Tables</p>
-                            <span class="badge badge-count">6</span>
+                        <a href="addvideo.php">
+                            <i class="la la-plus-circle"></i>
+                            <p>Add Video</p>
                         </a>
                     </li>
+                    <li class="nav-item ">
+                        <a href="totalvideo.php">
+                            <i class="la la-play-circle"></i>
+                            <p>Total Video Lecture</p>
+                            <span class="badge badge-success"><?php echo TotalNum('video','facilityid',$_SESSION['faid']); ?> </span>
+                        </a>
+                    </li>
+                   
                     <li class="nav-item">
                         <a href="notifications.html">
                             <i class="la la-bell"></i>
                             <p>Notifications</p>
                             <span class="badge badge-success">3</span>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="typography.html">
-                            <i class="la la-font"></i>
-                            <p>Typography</p>
-                            <span class="badge badge-danger">25</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="icons.html">
-                            <i class="la la-fonticons"></i>
-                            <p>Icons</p>
-                        </a>
-                    </li>
-                    <li class="nav-item update-pro">
-                        <button data-toggle="modal" data-target="#modalUpdate">
-                            <i class="la la-hand-pointer-o"></i>
-                            <p>Update To Pro</p>
-                        </button>
                     </li>
                 </ul>
             </div>
